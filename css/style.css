@@ -117,6 +117,14 @@ body {
     border-radius: 15px;
     background: #e3e3e3;
 }
+
+.button:active {
+    border-radius: 15px;
+    background: linear-gradient(145deg, #cccccc, #f3f3f3);
+    color: #676767;
+    font-size: 1.5rem;
+}
+
 @media (min-width: 720px) and (orientation: landscape) {
     .button:hover {
         border-radius: 15px;
@@ -126,15 +134,15 @@ body {
         color: #676767;
         font-size: 1.5rem;
     }
-}
 
-.button:active {
-    border-radius: 15px;
-    background: linear-gradient(145deg, #cccccc, #f3f3f3);
-    box-shadow:  5px 5px 5px #d8d8d8, 
-                -5px -5px 5px #eeeeee;
-    color: #676767;
-    font-size: 1.5rem;
+    .button:active {
+        border-radius: 15px;
+        background: linear-gradient(145deg, #cccccc, #f3f3f3);
+        box-shadow:  5px 5px 5px #d8d8d8, 
+                    -5px -5px 5px #eeeeee;
+        color: #676767;
+        font-size: 1.5rem;
+    }
 }
 
 .transition {
