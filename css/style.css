@@ -117,14 +117,15 @@ body {
     border-radius: 15px;
     background: #e3e3e3;
 }
-
-.button:hover {
-    border-radius: 15px;
-    background: #e3e3e3;
-    box-shadow:  7px 7px 15px #d3d3d3, 
-                -7px -7px 15px #f3f3f3;
-    color: #676767;
-    font-size: 1.5rem;
+@media (min-width: 720px) and (orientation: landscape) {
+    .button:hover {
+        border-radius: 15px;
+        background: #e3e3e3;
+        box-shadow:  7px 7px 15px #d3d3d3, 
+                    -7px -7px 15px #f3f3f3;
+        color: #676767;
+        font-size: 1.5rem;
+    }
 }
 
 .button:active {

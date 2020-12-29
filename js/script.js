@@ -49,7 +49,7 @@ replaceText(`closebracket`, `)`);
 replaceText(`backspace`, `<`);
 
 const BTNITEM = document.querySelectorAll(`.button`);
-let md;
+let md, ts;
 for (let button of BTNITEM) {
 	let rgx1 = /^[0-9\(\)\.]+$/;
 	if (rgx1.test(button.textContent)) {
@@ -78,6 +78,7 @@ for (let button of BTNITEM) {
 			} else {
 				INPUT.value = INPUT.value.slice(0, -1);
 			}
+			if (INPUT.value.length === 0) OUTPUT.textContent = ``;
 			INPUT.focus();
 		});
 		button.addEventListener(`mousedown`, () => {
@@ -89,6 +90,17 @@ for (let button of BTNITEM) {
 		button.addEventListener(`mouseup`, () => {
 			clearTimeout(md);
 			md = null;
+			INPUT.focus();
+		});
+		button.addEventListener(`touchstart`, () => {
+			ts = setTimeout(() => {
+				INPUT.value = "";
+				OUTPUT.textContent = "";
+			}, 600);
+		});
+		button.addEventListener(`touchend`, () => {
+			clearTimeout(ts);
+			ts = null;
 			INPUT.focus();
 		});
 	}
@@ -113,10 +125,6 @@ for (let button of BTNITEM) {
 			}
 		});
 	}
-	button.addEventListener(`touchend`, () => {
-		button.blur();
-		INPUT.focus();
-	});
 }
 
 let tabooKeys = [`Shift`, `Control`, `Command`, `Alt`];
