@@ -113,8 +113,13 @@ for (let button of BTNITEM) {
 			}
 		});
 	}
+	button.addEventListener(`touchend`, () => {
+		button.blur();
+		INPUT.focus();
+	});
 }
 
+let tabooKeys = [`Shift`, `Control`, `Command`, `Alt`];
 INPUT.addEventListener(`keydown`, (e) => {
 	if (e.key === `Enter` || e.key === `=`) {
 		try {
@@ -127,14 +132,14 @@ INPUT.addEventListener(`keydown`, (e) => {
 			} else {
 				OUTPUT.textContent = "Invalid expression!";
 			}
-			INPUT.focus();
 		} catch {
 			OUTPUT.textContent = "Invalid expression!";
-			INPUT.focus();
 		}
-	}
-	if (e.key === `Backspace` || e.key === `Delete`) {
+	} else if (e.key === `Backspace` || e.key === `Delete`) {
+		INPUT.value = INPUT.value.slice(0, -1);
 		if (INPUT.value.length === 0) OUTPUT.textContent = ``;
+	} else if (!tabooKeys.includes(e.key)) {
+		INPUT.value = INPUT.value + e.key;
 	}
 });
 
