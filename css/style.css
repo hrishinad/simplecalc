@@ -55,8 +55,10 @@ body {
 }
 
 @media (min-width: 720px) and (orientation: landscape) {
-    box-shadow:  6px 6px 15px #d8d8d8, 
+    .container {
+        box-shadow:  6px 6px 15px #d8d8d8, 
                 -6px -6px 15px #eeeeee;
+    }
 }
 
 #display {
